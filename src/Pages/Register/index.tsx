@@ -137,7 +137,7 @@ function Register() {
               </span>
             </div>
             <a
-              href="/login"
+              href="./login"
               className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
             >
               Already have an account?
