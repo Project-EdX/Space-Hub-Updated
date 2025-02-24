@@ -215,7 +215,7 @@ function Login() {
 
               <p className="mt-4 text-center text-sm text-gray-400">
                 Not a member?{" "}
-                <a href="#" className="text-white hover:text-gray-300">
+                <a href="./Register" className="text-white hover:text-gray-300">
                   Join the Adventure
                 </a>
               </p>
