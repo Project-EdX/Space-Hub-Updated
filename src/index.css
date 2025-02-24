@@ -1,0 +1,524 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: "Space Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #0a0a0f;
+}
+
+.starry-bg {
+    background: radial-gradient(circle at center, #0a0a0f 0%, #000000 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--duration) infinite;
+}
+
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.glitch-text {
+    text-shadow:
+        0.05em 0 0 rgba(255, 0, 0, 0.75),
+        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: glitch 500ms infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow:
+            0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 255, 0, 0.75);
+    }
+
+    14% {
+        text-shadow:
+            0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    15% {
+        text-shadow:
+            -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    49% {
+        text-shadow:
+            -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    50% {
+        text-shadow:
+            0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75),
+            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    99% {
+        text-shadow:
+            0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75),
+            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    100% {
+        text-shadow:
+            -0.025em 0 0 rgba(255, 0, 0, 0.75),
+            -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+}
+
+.nav-scrolled {
+    @apply bg-opacity-95 backdrop-blur-md shadow-lg;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.nav-hidden {
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+}
+
+@keyframes float-astronaut {
+    0%,
+    100% {
+        transform: translateY(0) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(-5deg);
+    }
+}
+
+.float-astronaut {
+    animation: float-astronaut 8s ease-in-out infinite;
+}
+
+.section-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Space background with gradient */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+}
+
+/* Reduced number of stars and added floating elements */
+.stars::before,
+.stars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(
+            3px 3px at 50px 50px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        ),
+        radial-gradient(
+            3px 3px at 150px 150px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        ),
+        radial-gradient(
+            3px 3px at 250px 250px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        ),
+        radial-gradient(
+            3px 3px at 350px 350px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        );
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    animation: stars 30s linear infinite;
+    opacity: 0.9;
+}
+
+.stars::after {
+    background-size: 300px 300px;
+    animation-delay: -15s;
+    opacity: 0.7;
+}
+
+/* Floating elements animation */
+.floating-element {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: float 20s linear infinite;
+}
+
+.floating-element img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes stars {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-400px);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(20px, 20px) rotate(180deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Contribution chart styles */
+.contribution-cell {
+    @apply w-4 h-4 rounded-sm transition-all duration-200;
+}
+
+.contribution-cell-0 {
+    @apply bg-white/5;
+}
+
+.contribution-cell-1 {
+    @apply bg-white/20;
+}
+
+.contribution-cell-2 {
+    @apply bg-white/40;
+}
+
+.contribution-cell-3 {
+    @apply bg-white/60;
+}
+
+.contribution-cell-4 {
+    @apply bg-white/80;
+}
+
+.contribution-cell:hover {
+    @apply transform scale-125;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+}
+
+/* Reduced number of stars and added floating elements */
+.stars::before,
+.stars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(
+            3px 3px at 50px 50px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        ),
+        radial-gradient(
+            3px 3px at 150px 150px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        ),
+        radial-gradient(
+            3px 3px at 250px 250px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        ),
+        radial-gradient(
+            3px 3px at 350px 350px,
+            rgba(255, 255, 255, 1),
+            rgba(0, 0, 0, 0)
+        );
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    animation: stars 30s linear infinite;
+    opacity: 0.9;
+}
+
+.stars::after {
+    background-size: 300px 300px;
+    animation-delay: -15s;
+    opacity: 0.7;
+}
+
+/* Floating elements animation */
+.floating-element {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: float 20s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.floating-element img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes stars {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-400px);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+    50% {
+        transform: translate(20px, 20px) rotate(180deg);
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+}
+
+/* Form Styles */
+.form-input {
+    @apply w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent placeholder-gray-500 text-sm transition-all duration-300;
+}
+
+.form-input:focus {
+    @apply bg-white/10 transform scale-[1.02];
+}
+
+.form-label {
+    @apply block text-sm font-medium text-gray-400 mb-1 flex justify-start;
+}
+
+.form-icon {
+    @apply absolute left-3 top-3.5 h-5 w-5 text-gray-400 transition-all duration-300;
+}
+
+.form-group:focus-within .form-icon {
+    @apply text-indigo-500 transform scale-110;
+}
+
+/* Checkbox styles */
+.custom-checkbox {
+    @apply h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 transition-all duration-300;
+}
+
+.custom-checkbox:checked {
+    @apply bg-indigo-600 border-transparent;
+}
+
+/* Button styles */
+.primary-button {
+    @apply w-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-lg px-4 py-3 font-['Press_Start_2P'] text-sm transition-all duration-300;
+}
+
+.primary-button:hover {
+    @apply from-indigo-700 to-indigo-800 transform scale-[1.02] shadow-lg shadow-indigo-500/25;
+}
+
+/* Card styles */
+.glass-card {
+    @apply bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10 transition-all duration-300;
+}
+
+.glass-card:hover {
+    @apply border-white/20 shadow-lg shadow-white/5;
+}
+
+/* Slider navigation */
+.slider-nav {
+    @apply p-2 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300;
+}
+
+.slider-nav:hover {
+    @apply transform scale-110 bg-white/15;
+}
+
+.slider-dot {
+    @apply w-2 h-2 rounded-full transition-all duration-300;
+}
+
+.slider-dot.active {
+    @apply bg-indigo-500 transform scale-125;
+}
+
+/* Contribution chart styles */
+.contribution-cell {
+    @apply w-4 h-4 rounded-sm transition-all duration-200;
+}
+
+.contribution-cell-0 {
+    @apply bg-white/5;
+}
+.contribution-cell-1 {
+    @apply bg-white/20;
+}
+.contribution-cell-2 {
+    @apply bg-white/40;
+}
+.contribution-cell-3 {
+    @apply bg-white/60;
+}
+.contribution-cell-4 {
+    @apply bg-white/80;
+}
+
+.contribution-cell:hover {
+    @apply transform scale-125 shadow-lg shadow-white/20;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s infinite;
+}
+
+/* Glassmorphism effects */
+.glass-effect {
+    @apply backdrop-blur-md bg-gradient-to-br from-white/10 to-white/5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-black/20;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/30;
+}
+
+.glow-card {
+    box-shadow: 0 0 15px rgba(0, 168, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.glow-card:hover {
+    box-shadow: 0 0 30px rgba(0, 168, 255, 0.4);
+    transform: translateY(-5px);
+}
+
+.neon-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.neon-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0, 168, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.neon-button:hover::before {
+    left: 100%;
+}
