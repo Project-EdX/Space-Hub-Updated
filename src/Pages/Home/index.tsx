@@ -106,53 +106,51 @@ function Home() {
       {/* Features Section */}
       <section className="py-20 relative section-fade">
         <h2 className="text-4xl font-mono text-center mb-12 glitch-text">
-          Why We're Based
+          !!! Must-Play Hits !!!
         </h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-          <div className="bg-[#1A1A2E] p-6 rounded-xl hover:transform hover:scale-105 transition-all">
-            <Zap className="text-yellow-400 mb-4" size={32} />
-            <h3 className="text-xl font-bold mb-2">Vibe Check ✨</h3>
-            <p className="text-gray-400">
-              Level up your skills with our fire courses!
-            </p>
-          </div>
-          <div className="bg-[#1A1A2E] p-6 rounded-xl hover:transform hover:scale-105 transition-all">
-            <Peace className="text-green-400 mb-4" size={32} />
-            <h3 className="text-xl font-bold mb-2">Squad Goals</h3>
-            <p className="text-gray-400">Join the coolest dev community!</p>
-          </div>
-          <div className="bg-[#1A1A2E] p-6 rounded-xl hover:transform hover:scale-105 transition-all">
-            <Brain className="text-purple-400 mb-4" size={32} />
-            <h3 className="text-xl font-bold mb-2">Brain Gains</h3>
-            <p className="text-gray-400">Daily challenges to level up!</p>
-          </div>
+          <CourseCard
+            // icon={<Globe className="text-blue-400" size={32} />}
+            title="Treasure Hunt"
+            description="Level up your skills finding treasure!"
+          />
+          <CourseCard
+            // icon={<Globe className="text-blue-400" size={32} />}
+            title="Grid Space"
+            description="Level up your Grid skills!"
+          />
+          <CourseCard
+            // icon={<Globe className="text-blue-400" size={32} />}
+            title="Find the Imposter"
+            description="Level up your debugging skills!"
+          />
         </div>
       </section>
 
       {/* Courses Section */}
       <section className="py-20 relative section-fade">
         <h2 className="text-4xl font-mono text-center mb-12 glitch-text">
-          Epic Missions
+          Game ON: Elite-Mode 
         </h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
           <CourseCard
             icon={<Globe className="text-blue-400" size={32} />}
-            title="Python Speedrun"
-            description="Master Python basics real quick!"
+            title="HTML"
+            description="Master HTML basics real quick!"
             duration="4 weeks"
             level="Newbie Vibes"
           />
           <CourseCard
             icon={<Atom className="text-green-400" size={32} />}
-            title="Web Dev Flex"
+            title="Tailwind CSS"
             description="Build sick websites that'll make everyone go sheesh!"
             duration="8 weeks"
             level="Mid Journey"
           />
           <CourseCard
             icon={<Rocket className="text-purple-400" size={32} />}
-            title="React God Mode"
-            description="Create amazing apps!"
+            title="JavaScript"
+            description="Create amazing Webpages!"
             duration="6 weeks"
             level="Based Dev"
           />
@@ -162,19 +160,19 @@ function Home() {
       {/* Achievements Section */}
       <section className="py-20 relative section-fade">
         <h2 className="text-4xl font-mono text-center mb-12 glitch-text">
-          Your Achievements
+          Flex Your Wins 
         </h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
           <AchievementCard
             icon={<Trophy className="text-yellow-400" size={32} />}
-            title="Code Warrior"
+            title="Treasure Hunt"
             description="Complete 5 missions"
             progress={85}
           />
           <AchievementCard
             icon={<Bug className="text-red-400" size={32} />}
-            title="Bug Slayer"
-            description="Fix 10 bugs"
+            title="Find the Imposter"
+            description="Fix 10+ bugs"
             progress={65}
           />
           <AchievementCard
